@@ -50,7 +50,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item) in products" :key="item.id">
+              <tr v-for="(item) in products" v-bind:key="item.id">
                 <td width="150">{{ item.title }}</td>
                 <td width="120">
                   {{ item.origin_price }}
@@ -63,7 +63,7 @@
                   <span v-else>未啟用</span>
                 </td>
                 <td width="120">
-                  <button type="button" class="btn btn-primary" @click="openProduct(item)">查看細節</button>
+                  <button type="button" class="btn btn-primary" v-on:click="tempProduct = item">查看細節</button>
                 </td>
               </tr>
             </tbody>
@@ -72,9 +72,9 @@
         </div>
         <div class="col-md-6">
           <h2>單一產品細節</h2>
-          <template v-if="tempProduct.title">
+          <div v-if="tempProduct.title">
             <div class="card mb-3">
-              <img :src="tempProduct.imageUrl" class="card-img-top primary-image" alt="主圖">
+              <img v-bind:src="tempProduct.imageUrl" class="card-img-top primary-image" alt="主圖">
               <div class="card-body">
                 <h5 class="card-title">
                   {{ tempProduct.title }}
@@ -89,10 +89,10 @@
                 </div>
               </div>
             </div>
-            <template v-for="(image, id) in tempProduct.imagesUrl" :key="id">
-              <img v-if="image" :src="image" :alt="`多圖 ${id+1}`" class="images m-2">
-            </template>
-          </template>
+            <span v-for="(image, id) in tempProduct.imagesUrl" v-bind:key="id">
+              <img v-if="image" v-bind:src="image" class="images m-2">
+            </span>
+          </div>
           <p v-else class="text-secondary">請選擇一個商品查看</p>
         </div>
       </div>

@@ -58,9 +58,4 @@ createApp({
       tempProduct: {},
     }
   },
-  methods: {
-    openProduct(item){
-      this.tempProduct = item;
-    }
-  }
 }).mount('#app');
