@@ -1,0 +1,37 @@
+.header {
+  background-image: url('../image/background-02.svg');
+  min-height: 430px;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.character {
+  background-image: url('../image/character-02.svg');
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.logo {
+  background-image: url('../image/words-02.svg');
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .character {
+    display: none;
+  } 
+}
