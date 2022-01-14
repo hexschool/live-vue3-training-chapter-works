@@ -35,7 +35,7 @@ createApp({
       this.tempProduct = item;
     }
   },
-  created() {
+  mounted() {
     // 取出 Token
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
     axios.defaults.headers.common.Authorization = token;
