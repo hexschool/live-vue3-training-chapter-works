@@ -84,16 +84,16 @@
             <div class="modal-body">
               <div class="row">
                 <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="imageUrl">主要圖片</label>
-                    <input v-model="tempProduct.imageUrl" type="text" class="form-control" placeholder="請輸入圖片連結">
+                  <div class="mb-3">
+                    <label for="imageUrl" class="form-label">主要圖片</label>
+                    <input v-model="tempProduct.imageUrl" type="text" class="form-control mb-2" placeholder="請輸入圖片連結">
                     <img class="img-fluid" :src="tempProduct.imageUrl">
                   </div>
-                  <div class="mb-1">多圖新增</div>
+                  <h3 class="mb-3">多圖新增</h3>
                   <div v-if="Array.isArray(tempProduct.imagesUrl)">
                     <div class="mb-1" v-for="(image, key) in tempProduct.imagesUrl" :key="key">
-                      <div class="form-group">
-                        <label for="imageUrl">圖片網址</label>
+                      <div class="mb-3">
+                        <label for="imageUrl" class="form-label">圖片網址</label>
                         <input v-model="tempProduct.imagesUrl[key]" type="text" class="form-control"
                           placeholder="請輸入圖片連結">
                       </div>
@@ -120,50 +120,50 @@
                   </div>
                 </div>
                 <div class="col-sm-8">
-                  <div class="form-group">
-                    <label for="title">標題</label>
+                  <div class="mb-3">
+                    <label for="title" class="form-label">標題</label>
                     <input id="title" v-model="tempProduct.title" type="text" class="form-control" placeholder="請輸入標題">
                   </div>
 
                   <div class="row">
-                    <div class="form-group col-md-6">
-                      <label for="category">分類</label>
+                    <div class="mb-3 col-md-6">
+                      <label for="category" class="form-label">分類</label>
                       <input id="category" v-model="tempProduct.category" type="text" class="form-control"
                         placeholder="請輸入分類">
                     </div>
-                    <div class="form-group col-md-6">
-                      <label for="price">單位</label>
+                    <div class="mb-3 col-md-6">
+                      <label for="price" class="form-label">單位</label>
                       <input id="unit" v-model="tempProduct.unit" type="text" class="form-control" placeholder="請輸入單位">
                     </div>
                   </div>
 
                   <div class="row">
-                    <div class="form-group col-md-6">
-                      <label for="origin_price">原價</label>
+                    <div class="mb-3 col-md-6">
+                      <label for="origin_price" class="form-label">原價</label>
                       <input id="origin_price" v-model.number="tempProduct.origin_price" type="number" min="0"
                         class="form-control" placeholder="請輸入原價">
                     </div>
-                    <div class="form-group col-md-6">
-                      <label for="price">售價</label>
+                    <div class="mb-3 col-md-6">
+                      <label for="price" class="form-label">售價</label>
                       <input id="price" v-model.number="tempProduct.price" type="number" min="0" class="form-control"
                         placeholder="請輸入售價">
                     </div>
                   </div>
                   <hr>
 
-                  <div class="form-group">
-                    <label for="description">產品描述</label>
+                  <div class="mb-3">
+                    <label for="description" class="form-label">產品描述</label>
                     <textarea id="description" v-model="tempProduct.description" type="text" class="form-control"
                       placeholder="請輸入產品描述">
                   </textarea>
                   </div>
-                  <div class="form-group">
-                    <label for="content">說明內容</label>
+                  <div class="mb-3">
+                    <label for="content" class="form-label">說明內容</label>
                     <textarea id="description" v-model="tempProduct.content" type="text" class="form-control"
                       placeholder="請輸入說明內容">
                   </textarea>
                   </div>
-                  <div class="form-group">
+                  <div class="mb-3">
                     <div class="form-check">
                       <input id="is_enabled" v-model="tempProduct.is_enabled" class="form-check-input" type="checkbox"
                         :true-value="1" :false-value="0">

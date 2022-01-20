@@ -8,15 +8,11 @@ createApp({
         username: '',
         password: '',
       },
-      page: '',
     };
   },
   methods: {
     login() {
       const api = `${this.apiUrl}/admin/signin`;
-      if (!this.page) {
-        return alert('請選擇你要登入的頁面。');
-      }
 
       axios.post(api, this.user).then((response) => {
         const { token, expired } = response.data;
@@ -24,7 +20,7 @@ createApp({
         // expires 設置有效時間
         document.cookie = `hexToken=${token};expires=${new Date(expired)}; path=/`;
 
-        window.location = `${this.page}.html`;
+        window.location = 'index.html';
       }).catch((error) => {
         alert(error.data.message);
       });
