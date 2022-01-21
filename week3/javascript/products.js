@@ -42,8 +42,8 @@ createApp({
           window.location = 'login.html';
         })
     },
-    getData(page = 1) {
-      const url = `${this.apiUrl}/api/${this.apiPath}/admin/products?page=${page}`;
+    getData() {
+      const url = `${this.apiUrl}/api/${this.apiPath}/admin/products/all`;
       axios.get(url).then((response) => {
         this.products = response.data.products;
       }).catch((err) => {
