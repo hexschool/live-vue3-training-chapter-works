@@ -1,15 +1,13 @@
 import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.9/vue.esm-browser.js';
 
-const apiUrl = 'https://vue3-course-api.hexschool.io/v2';
-const apiPath = 'hexschoolvue';
-
-
 let productModal = null;
 let delProductModal = null;
 
 createApp({
   data() {
     return {
+      apiUrl: 'https://vue3-course-api.hexschool.io/v2',
+      apiPath: 'hexschoolvue',
       products: [],
       tempProduct: {
         imagesUrl: [],
@@ -32,11 +30,11 @@ createApp({
         })
         .catch((err) => {
           alert(err.data.message)
-          window.location = 'index.html';
+          // window.location = 'index.html';
         })
     },
     getData(page = 1) {
-      const url = `${apiUrl}/api/${apiPath}/admin/products?page=${page}`;
+      const url = `${this.apiUrl}/api/${this.apiPath}/admin/products?page=${page}`;
 
       axios.get(url)
         .then((response) => {
@@ -115,11 +113,11 @@ createApp({
     methods: {
       updateProduct() {
         // 新增商品
-        let api = `${apiUrl}/api/${apiPath}/admin/product`;
+        let api = `${this.apiUrl}/api/${this.apiPath}/admin/product`;
         let httpMethod = 'post';
         // 當不是新增商品時則切換成編輯商品 API
         if (!this.isNew) {
-          api = `${apiUrl}/api/${apiPath}/admin/product/${this.product.id}`;
+          api = `${this.apiUrl}/api/${this.apiPath}/admin/product/${this.product.id}`;
           httpMethod = 'put';
         }
 
@@ -168,7 +166,7 @@ createApp({
     },
     methods: {
       delProduct() {
-        axios.delete(`${apiUrl}/api/${apiPath}/admin/product/${this.item.id}`).then((response) => {
+        axios.delete(`${this.apiUrl}/api/${this.apiPath}/admin/product/${this.item.id}`).then((response) => {
           if (response.data.success) {
             alert(response.data.message);
             this.hideModal();
