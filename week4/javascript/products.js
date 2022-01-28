@@ -1,6 +1,9 @@
 import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.9/vue.esm-browser.js';
 
-const app = createApp({
+let productModal = null;
+let delProductModal = null;
+
+const app =createApp({
   data() {
     return {
       apiUrl: 'https://vue3-course-api.hexschool.io/v2',
@@ -49,18 +52,18 @@ const app = createApp({
           imagesUrl: [],
         };
         this.isNew = true;
-        this.$refs.product.productModal.show()
+        productModal.show();
       } else if (isNew === 'edit') {
         this.tempProduct = { ...item };
         this.isNew = false;
-        this.$refs.product.productModal.show()
+        productModal.show();
       } else if (isNew === 'delete') {
         this.tempProduct = { ...item };
-        this.$refs.delProduct.delProductModal.show()
+        delProductModal.show()
       }
     },
   },
-})
+});
 
 // 分頁元件
 app.component('pagination', {
@@ -79,12 +82,13 @@ app.component('productModal', {
   props: ['product', 'isNew'],
   data() {
     return {
+      apiUrl: 'https://vue3-course-api.hexschool.io/v2',
+      apiPath: 'hexschoolvue',
       modal: null,
-      productModal: null,
     };
   },
   mounted() {
-    this.productModal = new bootstrap.Modal(document.getElementById('productModal'), {
+    productModal = new bootstrap.Modal(document.getElementById('productModal'), {
       keyboard: false,
       backdrop: 'static'
     });
@@ -113,26 +117,26 @@ app.component('productModal', {
       this.product.imagesUrl.push('');
     },
     openModal() {
-      this.productModal.show();
+      productModal.show();
     },
     hideModal() {
-      this.productModal.hide();
+      productModal.hide();
     },
   },
-});
-
+})
 // 產品刪除元件
 app.component('delProductModal', {
   template: '#delProductModal',
   props: ['item'],
   data() {
     return {
+      apiUrl: 'https://vue3-course-api.hexschool.io/v2',
+      apiPath: 'hexschoolvue',
       modal: null,
-      delProductModal: null,
     };
   },
   mounted() {
-    this.delProductModal = new bootstrap.Modal(document.getElementById('delProductModal'), {
+    delProductModal = new bootstrap.Modal(document.getElementById('delProductModal'), {
       keyboard: false,
       backdrop: 'static',
     });
@@ -147,10 +151,10 @@ app.component('delProductModal', {
       });
     },
     openModal() {
-      this.delProductModal.show();
+      delProductModal.show();
     },
     hideModal() {
-      this.delProductModal.hide();
+      delProductModal.hide();
     },
   },
 });
