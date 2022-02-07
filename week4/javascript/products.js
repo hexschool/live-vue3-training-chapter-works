@@ -84,7 +84,6 @@ app.component('productModal', {
     return {
       apiUrl: 'https://vue3-course-api.hexschool.io/v2',
       apiPath: 'hexschoolvue',
-      modal: null,
     };
   },
   mounted() {
@@ -132,7 +131,6 @@ app.component('delProductModal', {
     return {
       apiUrl: 'https://vue3-course-api.hexschool.io/v2',
       apiPath: 'hexschoolvue',
-      modal: null,
     };
   },
   mounted() {
