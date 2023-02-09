@@ -5,6 +5,7 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
+  base: '/live-vue3-training-chapter-works/',
   resolve:{
     alias:{
       '@' : path.resolve(__dirname, './src')
